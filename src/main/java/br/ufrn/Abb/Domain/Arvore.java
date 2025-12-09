@@ -2,6 +2,8 @@ package br.ufrn.Abb.Domain;
 
 import br.ufrn.Annotations.InfoAutor;
 
+import java.util.List;
+
 @InfoAutor(nome = "Richard", data = "2024-06-15")
 
 public class Arvore<T extends Comparable<T>> {
@@ -28,8 +30,12 @@ public class Arvore<T extends Comparable<T>> {
         raiz = removerRecursivo(raiz, data);
     }
 
-    public void emOrdem() {
-        emOrdemRecursivo(raiz);
+    public void printarArvoreEmOrdem() {
+        printarArvoreRecursiva(raiz);
+    }
+
+    public List<T> emOrdemList() {
+        return emOrdemRecursivoList(raiz, new java.util.ArrayList<>());
     }
 
     private No<T> inserirRecursivo(No<T> no, T data) {
@@ -107,12 +113,22 @@ public class Arvore<T extends Comparable<T>> {
         return no;
     }
 
-    private void emOrdemRecursivo(No<T> no) {
+    private void printarArvoreRecursiva(No<T> no) {
         if (no != null) {
-            emOrdemRecursivo(no.getEsquerda());
+            printarArvoreRecursiva(no.getEsquerda());
             System.out.println(no.getValor());
-            emOrdemRecursivo(no.getDireita());
+            printarArvoreRecursiva(no.getDireita());
         }
+    }
+
+    private List<T> emOrdemRecursivoList(No<T> no, List<T> lista) {
+        if (no != null) {
+            emOrdemRecursivoList(no.getEsquerda(), lista);
+            lista.add(no.getValor());
+            emOrdemRecursivoList(no.getDireita(), lista);
+        }
+
+        return lista;
     }
 
     private No<T> menorNo(No<T> no) {

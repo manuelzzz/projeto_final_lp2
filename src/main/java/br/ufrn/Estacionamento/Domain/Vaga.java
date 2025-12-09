@@ -15,6 +15,10 @@ public class Vaga implements Comparable<Vaga> {
         return numero;
     }
 
+    public boolean isOcupada() {
+        return ocupada;
+    }
+
     public void ocuparVaga(Carro carro) {
         if (this.ocupada) {
             throw new IllegalStateException("Vaga já está ocupada.");

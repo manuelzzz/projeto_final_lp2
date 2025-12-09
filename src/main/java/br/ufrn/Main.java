@@ -6,18 +6,36 @@ import br.ufrn.Estacionamento.Repository.VagaRepository;
 
 public class Main {
     public static void main(String[] args) {
-        VagaRepository repository = new VagaRepository();
+        VagaRepository estacionamento = new VagaRepository();
 
         Vaga vaga1 = new Vaga(1);
-        Carro carro1 = new Carro("ABC-1234", "Toyota Corolla", "Prata");
-        vaga1.ocuparVaga(carro1);
-        repository.salvar(vaga1);
-
         Vaga vaga2 = new Vaga(2);
-        Carro carro2 = new Carro("XYZ-5678", "Honda Civic", "Preto");
-        vaga2.ocuparVaga(carro2);
-        repository.salvar(vaga2);
+        Vaga vaga3 = new Vaga(3);
+        Vaga vaga4 = new Vaga(4);
+        Vaga vaga5 = new Vaga(5);
+        Vaga vaga6 = new Vaga(6);
 
-        repository.listarVagas();
+        Carro carro1 = new Carro("ABC-1234", "Toyota Corolla", "Prata");
+        Carro carro2 = new Carro("DEF-5678", "Honda Civic", "Preto");
+        Carro carro3 = new Carro("GHI-9012", "Ford Focus", "Branco");
+        vaga1.ocuparVaga(carro1);
+        vaga4.ocuparVaga(carro2);
+
+        estacionamento.salvar(vaga3);
+        estacionamento.salvar(vaga1);
+        estacionamento.salvar(vaga5);
+        estacionamento.salvar(vaga2);
+        estacionamento.salvar(vaga4);
+        estacionamento.salvar(vaga6);
+
+        estacionamento.listarVagas();
+        separator();
+
+        estacionamento.estacionarCarro(carro3);
+        estacionamento.listarVagas();
+    }
+
+    static private void separator() {
+        System.out.println("--------------------------------------------------");
     }
 }
