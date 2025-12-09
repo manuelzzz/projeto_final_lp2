@@ -11,6 +11,10 @@ public class Arvore<T extends Comparable<T>> {
         raiz = inserirRecursivo(raiz, data);
     }
 
+    public T buscarPorId(Object id) {
+        return buscaRecursivaPorId(raiz, id);
+    }
+
     public boolean buscar(T data) {
         return buscaRecursiva(raiz, data);
     }
@@ -43,6 +47,21 @@ public class Arvore<T extends Comparable<T>> {
         } else {
             return buscaRecursiva(no.getDireita(), data);
         }
+    }
+
+    private T buscaRecursivaPorId(No<T> no, Object id) {
+        if (no == null) return null;
+
+        if (no.getValor().equals(id)) {
+            return no.getValor();
+        }
+
+        T esquerda = buscaRecursivaPorId(no.getEsquerda(), id);
+        if (esquerda != null) {
+            return esquerda;
+        }
+
+        return buscaRecursivaPorId(no.getDireita(), id);
     }
 
     private No<T> removerRecursivo(No<T> no, T data) {

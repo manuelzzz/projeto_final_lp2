@@ -11,6 +11,10 @@ public class Vaga implements Comparable<Vaga> {
         this.carro = null;
     }
 
+    public int getNumero() {
+        return numero;
+    }
+
     public void ocuparVaga(Carro carro) {
         if (this.ocupada) {
             throw new IllegalStateException("Vaga já está ocupada.");
@@ -23,5 +27,14 @@ public class Vaga implements Comparable<Vaga> {
     @Override
     public int compareTo(Vaga o) {
         return Integer.compare(this.numero, o.numero);
+    }
+
+    public void liberarVaga() {
+        if (!this.ocupada) {
+            throw new IllegalStateException("Vaga já está livre.");
+        }
+
+        this.ocupada = false;
+        this.carro = null;
     }
 }
