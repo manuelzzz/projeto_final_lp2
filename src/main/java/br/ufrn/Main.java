@@ -13,5 +13,6 @@ public class Main {
         repository.salvar(vaga1);
         Carro carro1 = new Carro("ABC-1234", "Toyota Corolla", "Prata");
         vaga1.ocuparVaga(carro1);
+        repository.atualizar(vaga1);
     }
 }
