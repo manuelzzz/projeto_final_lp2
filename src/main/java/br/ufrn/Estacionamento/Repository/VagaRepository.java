@@ -1,10 +1,13 @@
 package br.ufrn.Estacionamento.Repository;
 
 import br.ufrn.Abb.Domain.Arvore;
+import br.ufrn.Annotations.InfoAutor;
 import br.ufrn.Estacionamento.Domain.Carro;
 import br.ufrn.Estacionamento.Domain.Vaga;
 
+@InfoAutor(nome = "Manuel Santos", data = "09-12-2025")
 public class VagaRepository implements GenericRepository<Vaga> {
+
     private Arvore<Vaga> arvore = new Arvore<>();
 
     @Override
@@ -41,6 +44,8 @@ public class VagaRepository implements GenericRepository<Vaga> {
     }
 
     public void estacionarCarro(Carro carro) {
+        // Estaciona o carro na vaga mais próxima das vagas disponíveis no repository
+
         Vaga vagaLivre = this.buscarVagaLivre();
 
         if (vagaLivre != null) {

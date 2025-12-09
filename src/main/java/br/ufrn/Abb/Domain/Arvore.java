@@ -1,11 +1,5 @@
 package br.ufrn.Abb.Domain;
 
-import br.ufrn.Annotations.InfoAutor;
-
-import java.util.List;
-
-@InfoAutor(nome = "Richard", data = "2024-06-15")
-
 public class Arvore<T extends Comparable<T>> {
 
     private No<T> raiz;
@@ -67,7 +61,9 @@ public class Arvore<T extends Comparable<T>> {
     }
 
     private T buscaRecursivaPorId(No<T> no, Object id) {
-        if (no == null) return null;
+        if (no == null) {
+            return null;
+        }
 
         if (no.getValor().equals(id)) {
             return no.getValor();

@@ -1,6 +1,10 @@
 package br.ufrn.Estacionamento.Domain;
 
+import br.ufrn.Annotations.InfoAutor;
+
+@InfoAutor(nome = "Richard Matheus", data = "09-12-2025")
 public class Vaga implements Comparable<Vaga> {
+
     private int numero;
     private boolean ocupada;
     private Carro carro;

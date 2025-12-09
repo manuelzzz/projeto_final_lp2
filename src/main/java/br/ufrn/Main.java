@@ -1,12 +1,29 @@
 package br.ufrn;
 
+import br.ufrn.Annotations.InfoAutor;
 import br.ufrn.Estacionamento.Domain.Carro;
 import br.ufrn.Estacionamento.Domain.Vaga;
 import br.ufrn.Estacionamento.Repository.VagaRepository;
 
 public class Main {
+
     public static void main(String[] args) {
+
         VagaRepository estacionamento = new VagaRepository();
+
+        // Verifica se o tipo de estacionamento possui autor
+        Class<?> classEstacionamento = estacionamento.getClass();
+        if (classEstacionamento.isAnnotationPresent(InfoAutor.class)) {
+            InfoAutor infoAutor = classEstacionamento.getAnnotation(InfoAutor.class);
+            System.out.println("Autor da classe " + classEstacionamento.getSimpleName() + ": " + infoAutor.nome() + ", Data: " + infoAutor.data());
+        }
+
+        // Verifica se a classe vaga possui autor
+        Class<?> classVaga = Vaga.class;
+        if (classVaga.isAnnotationPresent(InfoAutor.class)) {
+            InfoAutor infoAutor = classVaga.getAnnotation(InfoAutor.class);
+            System.out.println("Autor da classe " + classVaga.getSimpleName() + ": " + infoAutor.nome() + ", Data: " + infoAutor.data());
+        }
 
         Vaga vaga1 = new Vaga(1);
         Vaga vaga2 = new Vaga(2);
