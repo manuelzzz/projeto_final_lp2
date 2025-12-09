@@ -1,6 +1,11 @@
 package br.ufrn.Abb.Domain;
 
+import br.ufrn.Annotations.InfoAutor;
+
+@InfoAutor(nome = "Richard", data = "2024-06-15")
+
 public class Arvore<T extends Comparable<T>> {
+
     private No<T> raiz;
 
     public Arvore() {
@@ -34,7 +39,9 @@ public class Arvore<T extends Comparable<T>> {
     }
 
     private boolean buscaRecursiva(No<T> no, T data) {
-        if (no == null) return false;
+        if (no == null) {
+            return false;
+        }
 
         if (data.compareTo(no.getValor()) == 0) {
             return true;
