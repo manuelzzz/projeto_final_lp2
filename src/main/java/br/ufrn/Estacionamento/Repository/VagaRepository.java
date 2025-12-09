@@ -3,7 +3,7 @@ package br.ufrn.Estacionamento.Repository;
 import br.ufrn.Abb.Domain.Arvore;
 import br.ufrn.Estacionamento.Domain.Vaga;
 
-public class EstacionamentoRepository implements GenericRepository<Vaga> {
+public class VagaRepository implements GenericRepository<Vaga> {
     private Arvore<Vaga> arvore = new Arvore<>();
 
     public void listarVagas() {
