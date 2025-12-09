@@ -6,6 +6,10 @@ import br.ufrn.Estacionamento.Domain.Vaga;
 public class EstacionamentoRepository implements GenericRepository<Vaga> {
     private Arvore<Vaga> arvore = new Arvore<>();
 
+    public void listarVagas() {
+        arvore.emOrdem();
+    }
+
     @Override
     public void salvar(Vaga entity) {
         arvore.inserir(entity);

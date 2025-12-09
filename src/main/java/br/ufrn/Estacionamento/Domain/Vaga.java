@@ -37,4 +37,9 @@ public class Vaga implements Comparable<Vaga> {
         this.ocupada = false;
         this.carro = null;
     }
+
+    @Override
+    public String toString() {
+        return "Vaga { " + "numero = " + numero + ", ocupada = " + ocupada + ", carro = " + (carro != null ? carro.getPlaca() : "Nenhum") + " }";
+    }
 }

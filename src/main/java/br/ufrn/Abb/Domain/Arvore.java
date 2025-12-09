@@ -28,6 +28,10 @@ public class Arvore<T extends Comparable<T>> {
         raiz = removerRecursivo(raiz, data);
     }
 
+    public void emOrdem() {
+        emOrdemRecursivo(raiz);
+    }
+
     private No<T> inserirRecursivo(No<T> no, T data) {
         if (no == null) {
             return new No<>(data);
@@ -101,6 +105,14 @@ public class Arvore<T extends Comparable<T>> {
         }
 
         return no;
+    }
+
+    private void emOrdemRecursivo(No<T> no) {
+        if (no != null) {
+            emOrdemRecursivo(no.getEsquerda());
+            System.out.println(no.getValor());
+            emOrdemRecursivo(no.getDireita());
+        }
     }
 
     private No<T> menorNo(No<T> no) {
