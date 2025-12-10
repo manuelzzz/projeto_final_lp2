@@ -48,6 +48,7 @@ public class Main {
         estacionamento.listarVagas();
         separator();
 
+        // Carro 3 deve ser adicionado na vaga número 3, pois é a vaga mais próxima disponível
         estacionamento.estacionarCarro(carro3);
         estacionamento.listarVagas();
     }

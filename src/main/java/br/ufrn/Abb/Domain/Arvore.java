@@ -1,5 +1,7 @@
 package br.ufrn.Abb.Domain;
 
+import java.util.List;
+
 public class Arvore<T extends Comparable<T>> {
 
     private No<T> raiz;
